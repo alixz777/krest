@@ -5,8 +5,10 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/effect-fade'
+import { loadHomeNews } from './home-news.js'
 
 document.addEventListener("DOMContentLoaded", function() {
+    loadHomeNews()
     let menuBtn = document.querySelectorAll('.header .menu-list .menu-btn')
     let subMenuBackBtn = document.querySelectorAll('.header .menu-list .sub-menu .back-btn')
     let modalOverlay = document.querySelector('.modal-overlay')
