@@ -21,6 +21,12 @@ $featuredArticles = getNewsList(null, 5, 0);
     <link rel="stylesheet" href="/styles/main.css">
 </head>
 <body>
+    <div class="cookie">
+        <p>Мы&nbsp;используем файлы cookie для&nbsp;обеспечения удобства использования нашего сайта. Продолжая просмотр страниц, <a href="#">вы&nbsp;соглашаетесь с&nbsp;использованием cookie.</a></p>
+        <button class="btn btn--blue">
+            <span>Хорошо</span>
+        </button>
+    </div>
     <header class="header">
         <div class="container">
             <a class="logo" href="index.php">
@@ -79,5 +85,15 @@ $featuredArticles = getNewsList(null, 5, 0);
             <p style="text-align: center; opacity: 0.8;">© 2025 Фонд помощи «Русский Крест»</p>
         </div>
     </footer>
+    <script>
+        const cookie = document.querySelector('.cookie');
+        const cookieBtn = document.querySelector('.cookie .btn');
+
+        if (cookieBtn) {
+            cookieBtn.addEventListener('click', () => {
+                cookie.remove();
+            });
+        }
+    </script>
 </body>
 </html>
