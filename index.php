@@ -1,0 +1,83 @@
+<?php
+require_once 'config.php';
+
+$featuredArticles = getNewsList(null, 5, 0);
+?>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Русский крест</title>
+    <meta name="theme-color" content="#fff">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="shortcut icon" href="img/favicons/favicon.ico" type="image/x-icon">
+    <link rel="icon" sizes="16x16" href="img/favicons/favicon-16x16.png" type="image/png">
+    <link rel="icon" sizes="32x32" href="img/favicons/favicon-32x32.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a class="logo" href="index.php">
+                <svg width="213" height="52" viewBox="0 0 213 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M62.0906 18.21V42.1702H65.7061V37.3648H66.6511C67.8522 37.3648 68.8886 36.9633 69.7422 36.1665C70.5957 35.3696 71.1079 34.2808 71.303 32.9365L73.2296 18.3682L73.2479 18.2039H62.0845L62.0906 18.21ZM67.7241 32.4316C67.5961 33.338 67.2486 33.7577 66.6511 33.7577H65.7061V21.8232H69.1264L67.7241 32.4316Z" fill="#BE1F36"/>
+                    <path d="M80.5458 33.2528H80.1007C79.8081 33.2528 79.5703 33.1372 79.3813 32.9C79.1862 32.6506 79.0643 32.3465 79.0216 31.9937L77.5279 18.3317L77.5157 18.2039H73.8698L75.4123 32.3951C75.5525 33.6847 76.0646 34.7674 76.9487 35.6129C77.8205 36.4463 78.8631 36.8782 80.052 36.8903C79.6008 38.8794 78.8143 40.5704 77.7108 41.9269L77.5218 42.1641H81.8079L81.8505 42.0911C82.3505 41.2517 82.8016 40.1385 83.1857 38.7942C83.5698 37.456 83.8015 36.4828 83.8869 35.8988C83.9661 35.321 84.0271 34.8647 84.0759 34.5241L85.7708 18.3621L85.7891 18.2039H82.1737L80.5458 33.2528Z" fill="#BE1F36"/>
+                    <path d="M86.9048 37.5229C86.9048 38.7942 87.3621 39.9013 88.2705 40.8015C89.1729 41.7018 90.2825 42.1641 91.5567 42.1641H96.7147V33.2528H93.1054V38.5631H91.5567C91.2763 38.5631 91.0385 38.4597 90.8312 38.2529C90.6178 38.04 90.5203 37.8027 90.5203 37.529V21.8171H93.1114V25.4911H96.7208V18.2161H86.9048V37.5351V37.5229Z" fill="#BE1F36"/>
+                    <path d="M98.3243 37.5229C98.3243 38.7942 98.7815 39.9013 99.69 40.8015C100.598 41.7018 101.702 42.1641 102.976 42.1641H108.134V33.2528H104.525V38.5631H102.976C102.696 38.5631 102.458 38.4597 102.251 38.2529C102.037 38.046 101.94 37.8027 101.94 37.529V21.8171H104.531V25.4911H108.14V18.2161H98.3243V37.5351V37.5229Z" fill="#BE1F36"/>
+                </svg>
+            </a>
+            <a class="donate-btn btn btn--red" href="#donation">
+                <span>Хочу помочь</span>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section class="press">
+            <div class="container">
+                <div class="title-wrapper">
+                    <h2 class="h4">Пресс-центр</h2>
+                    <a class="btn btn--blue" href="news.php">
+                        <span>Смотреть всё</span>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13 6L19 12M19 12L13 18M19 12H4" stroke="#375583" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </a>
+                </div>
+                <ul class="press-list">
+                    <?php if (empty($featuredArticles)): ?>
+                        <li>Нет доступных новостей</li>
+                    <?php else: ?>
+                        <?php foreach ($featuredArticles as $index => $article): ?>
+                            <li <?= $index === 0 ? 'class="press-list__item--featured"' : '' ?>>
+                                <a href="article.php?slug=<?= urlencode($article['slug']) ?>">
+                                    <picture>
+                                        <img src="<?= escapeHtml($article['image_url']) ?>" alt="<?= escapeHtml($article['title']) ?>">
+                                    </picture>
+                                    <p class="badge"><?= escapeHtml(getCategoryName($article['category'])) ?></p>
+                                    <h6><?= escapeHtml($article['title']) ?></h6>
+                                    <div class="row">
+                                        <p class="date"><?= escapeHtml(formatDate($article['published_at'])) ?></p>
+                                        <p class="link">Подробнее</p>
+                                    </div>
+                                </a>
+                            </li>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p style="text-align: center; opacity: 0.8;">© 2025 Фонд помощи «Русский Крест»</p>
+        </div>
+    </footer>
+</body>
+</html>
