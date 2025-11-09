@@ -26,8 +26,6 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-        <link rel="stylesheet" href="styles/main.css">
     </head>
     <body>
         <div class="cookie">
@@ -878,21 +876,18 @@
 </footer>
         <div class="modal-overlay"></div>
 
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-        <script src="js/inputmask.min.js"></script>
-        <script src="js/main.js"></script>
-        <script>
-// tel-mask
-document.addEventListener("DOMContentLoaded", function(event) {
-    var selector = document.querySelectorAll('input[type="tel"]');
+        <script type="module" src="/src/main.js"></script>
+        <script type="module">
+import Inputmask from 'inputmask'
+
+document.addEventListener("DOMContentLoaded", function() {
+    const selector = document.querySelectorAll('input[type="tel"]');
 
     selector.forEach(element => {
-        var im = new Inputmask("+7 (999) 999-99-99");
+        const im = new Inputmask("+7 (999) 999-99-99");
         im.mask(element);
     });
-
 })
-
         </script>
     </body>
 </html>
