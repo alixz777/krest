@@ -3125,4 +3125,183 @@ input[type=number]::-webkit-outer-spin-button {
     gap: 16px;
   }
 }
+.press--page {
+  padding: 64px 0 128px;
+}
+
+.news-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--Secondary-50);
+}
+
+.filter-btn {
+  display: flex;
+  padding: 10px 16px;
+  justify-content: center;
+  align-items: center;
+  height: 44px;
+  color: var(--Primary-500);
+  font-weight: 500;
+  letter-spacing: -0.18px;
+  border-radius: 100px;
+  background: var(--Primary-50);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: 0.3s;
+}
+
+.filter-btn:hover {
+  background-color: var(--Primary-100);
+}
+
+.filter-btn.active {
+  color: var(--Add-White);
+  background: var(--Primary-500);
+}
+
+.press-list .loading,
+.press-list .no-results {
+  padding: 40px;
+  text-align: center;
+  font-size: 18px;
+  color: var(--Secondary-200);
+}
+
+.load-more-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.article-detail {
+  padding: 64px 0;
+  background-color: var(--Add-White);
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 32px;
+  font-size: 14px;
+}
+
+.breadcrumbs a {
+  color: var(--Primary-500);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.breadcrumbs a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumbs span {
+  color: var(--Secondary-200);
+}
+
+.article-header {
+  margin-bottom: 32px;
+}
+
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.article-category {
+  display: inline-flex;
+  padding: 4px 12px;
+  background: var(--Primary-50);
+  color: var(--Primary-500);
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.article-date {
+  color: var(--Secondary-200);
+  font-size: 16px;
+}
+
+.article-title {
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 120%;
+  letter-spacing: -1.07px;
+  color: var(--Secondary-500);
+}
+
+.article-image {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 48px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.article-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.article-body {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.article-body p {
+  font-size: 20px;
+  line-height: 150%;
+  letter-spacing: -0.33px;
+  margin-bottom: 24px;
+  color: var(--Secondary-500);
+}
+
+.article-back {
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid var(--Secondary-50);
+}
+
+.error-message {
+  text-align: center;
+  padding: 64px 0;
+}
+
+.error-message h2 {
+  font-size: 32px;
+  margin-bottom: 16px;
+  color: var(--Secondary-500);
+}
+
+.error-message p {
+  font-size: 18px;
+  color: var(--Secondary-200);
+}
+
+.error-message a {
+  color: var(--Primary-500);
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .article-title {
+    font-size: 32px;
+    letter-spacing: -0.69px;
+  }
+
+  .article-body p {
+    font-size: 16px;
+    letter-spacing: -0.18px;
+  }
+}
+
 /*# sourceMappingURL=maps/main.css.map */
